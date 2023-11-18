@@ -1,0 +1,20 @@
+.container{
+    margin: 0 auto;
+}
+.container__p{
+    text-align: end;
+    margin: 5px 0;
+}
+.container__pb{
+    margin: 0 8px;
+}
+.counterContainer{
+    display: flex;
+}
+.counterContainer__pb{
+    font-weight: bold;
+}
+.counterContainer__p{
+    margin: auto 10px;
+
+}

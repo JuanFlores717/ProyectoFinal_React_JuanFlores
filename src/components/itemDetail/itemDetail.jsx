@@ -1,6 +1,6 @@
 import {useEffect, useState } from "react"
 import ItemCount from "../itemCount/itemCount"
-
+import styles from "./styles.module.css"
 
 const ItemDetail = ({products}) => {
     const [id, setId] = useState()
@@ -8,11 +8,11 @@ const ItemDetail = ({products}) => {
         setId(products?.id)
       },[])
     return(
-       <div className="card">
-                <h3 className="card__tittle">{products?.title}</h3>
-                <img className="card__img" src={products?.image} alt="" />
-                <p className="card__desc">{products?.description}</p>
-                <p className="card__price">Precio : {products?.price}</p>
+       <div className={styles.card}>
+                <h3 className={styles.card__tittle}>{products?.title}</h3>
+                <img className={styles.card__img} src={products?.image} alt="" />
+                <p className={styles.card__desc}>{products?.description}</p>
+                <p className={styles.card__price}>Precio: {products?.price}</p>
                 <ItemCount product = {products}/>
         </div>
     )

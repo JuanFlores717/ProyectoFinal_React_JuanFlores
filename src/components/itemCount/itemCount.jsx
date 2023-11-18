@@ -1,6 +1,6 @@
 import {useContext, useEffect, useState } from "react"
 import { CartContext } from "../context/cartContext"
-
+import styles from "./styles.module.css"
 
 const ItemCount = (product) => {
     const [counter, setCounter] = useState(1)
@@ -22,14 +22,14 @@ const ItemCount = (product) => {
 
 
     return(
-       <div>
-            <div>
-                <button onClick={subItem}>-</button>
-                <p>Cantidad: {counter}</p>
-                <button onClick={addItem}>+</button>
+       <div className={styles.container}>
+            <div className={styles.counterContainer}>
+                <button onClick={subItem} className={styles.counterContainer__pb}>-</button>
+                <p className={styles.counterContainer__p}>Cantidad: {counter}</p>
+                <button onClick={addItem} className={styles.counterContainer__pb}>+</button>
             </div>
-            <p>Stock: {stock}</p>
-            <button onClick={() => addToCart (product?.product, counter)}>añadir al carrito</button>
+            <p className={styles.container__p}>Stock: {stock}</p>
+            <button className={styles.container__pb} onClick={() => addToCart (product?.product, counter)}>Añadir al carrito</button>
         </div>
     )
 }

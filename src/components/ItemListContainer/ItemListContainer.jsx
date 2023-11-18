@@ -3,6 +3,7 @@ import Item from "../item/item"
 import { useParams } from "react-router-dom"
 import { db } from "../firebase/client"
 import { getDocs, collection, query, where } from "firebase/firestore"
+import styles from "./styles.module.css"
 
 const ItemListContainer = () => {
     const { id } = useParams()
@@ -21,7 +22,7 @@ const ItemListContainer = () => {
     },[id])
 
     return (
-        <div className="cardContainer">
+        <div className={styles.cardContainer}>
             {products?.map(pr => <Item products={pr} key={pr.id}></Item>)}
         </div>
     )

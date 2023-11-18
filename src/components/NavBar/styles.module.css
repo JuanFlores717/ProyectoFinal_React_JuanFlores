@@ -1,0 +1,41 @@
+.navBar{
+    display: flex;
+    justify-content: space-between;
+    min-width: 100%;
+    background-color: #A6FF3D;
+    height: 100px;
+    align-items: center;
+  }
+  .navBar__logo{
+    font-size: 32px;
+    padding: 20px
+  }
+  .navBar__logo_text{
+    font-size: 32px;
+    color: #EB3EFF;
+    font-style: oblique;
+  }
+  
+  .navBar__list{
+    display: flex;
+  }
+  .navBar__list_link{
+    font-size: 28px;
+  }
+  .navBar__list_li{
+    padding: 5px;
+    font-weight: bold;
+    color: #EB3EFF;
+    margin: 0 10px;
+    font-size: 20px;
+  }
+  .navBar__list_li :visited{
+    color: #EB3EFF;
+  }
+  .navBar__list_li:hover{
+    background-color: #EE90FF;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 25px;
+    transition: 0.5s;
+  }

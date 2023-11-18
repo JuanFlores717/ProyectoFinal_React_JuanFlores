@@ -1,0 +1,15 @@
+.carWidget{
+    display: flex;
+    padding: 10px;
+  }
+  .cardWidget__img{
+  height: 50px;
+  width: 50px;  
+  }
+  .carWidget__text{
+    font-size: 19px;
+    font-weight: bold;
+    position: relative;
+    right: 33px;
+    top: 10px;
+  }

@@ -3,6 +3,7 @@ import CartWidget from "../cartWidget/CartWidget"
 import { useEffect , useState} from "react"
 import { db } from "../firebase/client"
 import { getDocs, collection } from "firebase/firestore"
+import styles from "./styles.module.css"
 
 const NavBar = () => {
 
@@ -20,15 +21,15 @@ const NavBar = () => {
         return str.charAt(0).toUpperCase() + str.slice(1);
       }
     return(
-        <nav className="navBar">
-            <div className="navBar__logo">
+        <nav className={styles.navBar}>
+            <div className={styles.navBar__logo}>
                 <Link to = {`/`}> 
-                <h1 className= "navBar__logo-text">Peluches Estelares</h1>
+                <h1 className= {styles.navBar__logo_text}>Peluches Estelares</h1>
             </Link>
             </div>
             <div>
-                <ul className="navBar__list">
-                    {category?.map((cat, index) => <Link to = {`./category/${cat}`} key={index} className="navBar__list-li">{firtCharToUpperCase(cat)}</Link>)}
+                <ul className={styles.navBar__list}>
+                    {category?.map((cat, index) => <Link to = {`./category/${cat}`} key={index} className={styles.navBar__list_li}>{firtCharToUpperCase(cat)}</Link>)}
                 </ul>
             </div>
             <CartWidget/>
