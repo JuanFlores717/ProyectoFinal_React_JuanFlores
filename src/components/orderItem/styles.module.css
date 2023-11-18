@@ -1,0 +1,30 @@
+.cart{
+    background-color: lightblue;
+    width: 1200px;
+    padding: 10px;
+    margin: 10px;
+    height: 100px;
+    display: grid;
+    grid-template-columns: 100px 1fr 100px 100px 80px;
+    border-radius: 5px;
+  }
+  .cart__img{
+    margin: 0 auto;
+    max-height: 100px;
+    max-width: 100px;
+  }
+  .cart__data{
+    margin: auto auto;
+  }
+  .cart__tittle{
+    font-size: 16px;
+  }
+  .cart__price{
+    margin: auto 0;
+  }
+  .cart__desc{
+    font-size: 18x;
+    margin: 0 auto;
+  }
+
+ 

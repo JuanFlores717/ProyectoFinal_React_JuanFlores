@@ -1,22 +1,31 @@
 import { useState, useEffect } from "react"
 import Item from "../item/item"
 import { useParams } from "react-router-dom"
+import { db } from "../firebase/client"
+import { getDocs, collection, query, where } from "firebase/firestore"
 
 const ItemListContainer = () => {
-  const {id} = useParams()
-  const [products, setProducts] = useState()
-  const url = id ? (`https://fakestoreapi.com/products/category/${id}`) : (`https://fakestoreapi.com/products`)
-  useEffect(() => {
-      fetch(`${url}`)
-      .then(res=>res.json())
-      .then(json=>setProducts(json))
+    const { id } = useParams()
+    const [products, setProducts] = useState()
+    useEffect(() => {
+
+        const productsRef = query (
+            collection(db, "products"),
+            id && where("categoryId", "==", id)
+        )
+        getDocs(productsRef)
+        .then((snapshot) => {
+            setProducts(snapshot.docs.map(doc => ({id: doc.id, ...doc.data()})))
+        })
+        .catch(e => console.error(e))
     },[id])
-    return(
+
+    return (
         <div className="cardContainer">
-            {products?.map (pr => <Item products={pr} key ={pr.id}></Item>)}
+            {products?.map(pr => <Item products={pr} key={pr.id}></Item>)}
         </div>
     )
 }
 
-    
-    export default ItemListContainer
+
+export default ItemListContainer

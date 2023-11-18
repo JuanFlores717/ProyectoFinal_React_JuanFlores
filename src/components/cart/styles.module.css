@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 1200px;
+    margin: 0 auto;
+}
+.cartContainer{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.infoContainer{
+    margin: 0 auto;
+}
+.infoContainer__p{
+    text-align: center;
+    margin: 10px 0;
+}
+.infoContainer__buttons{
+    display: flex;
+}
+
+.infoContainer__buttons_pb{
+    width: 100px;
+    height: 45px;
+    align-items: end;
+    margin: 0 10px;
+}

@@ -4,7 +4,17 @@
   list-style: none;
   text-decoration: none;
 }
-
+button{
+  padding: 5px;
+  background-color: #f48fff;
+  color:black;
+  font-weight: bold;
+  border-radius: 5px;
+}
+button:hover{
+  transition: all 0.5s;
+  background-color: aqua;
+} 
 .navBar{
   display: flex;
   justify-content: space-between;

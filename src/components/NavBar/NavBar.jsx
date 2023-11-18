@@ -1,14 +1,24 @@
 import { Link } from "react-router-dom"
-import CardWidget from "../CardWidget/CardWidget"
+import CartWidget from "../cartWidget/CartWidget"
 import { useEffect , useState} from "react"
+import { db } from "../firebase/client"
+import { getDocs, collection } from "firebase/firestore"
+
 const NavBar = () => {
 
     const [category, setCategory] = useState()
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products/categories')
-        .then(res=>res.json())
-        .then(json=>setCategory(json))
-      },[])
+        const productsRef = collection(db, "products")
+        
+        getDocs(productsRef)
+        .then((snapshot) => {
+            setCategory([...new Set(snapshot.docs.map(doc => doc.data().categoryId))]);
+        })
+        .catch(e => console.error(e))
+    },[])
+    function firtCharToUpperCase(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+      }
     return(
         <nav className="navBar">
             <div className="navBar__logo">
@@ -18,10 +28,10 @@ const NavBar = () => {
             </div>
             <div>
                 <ul className="navBar__list">
-                    {category?.map((cat, index) => <Link to = {`./category/${cat}`} key={index} className="navBar__list-li">{cat}</Link>)}
+                    {category?.map((cat, index) => <Link to = {`./category/${cat}`} key={index} className="navBar__list-li">{firtCharToUpperCase(cat)}</Link>)}
                 </ul>
             </div>
-            <CardWidget/>
+            <CartWidget/>
         </nav>
         )
     }
